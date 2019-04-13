@@ -1,0 +1,14 @@
+{
+    "name": "uppay-plugin",
+    "version": "0.0.1",
+    "author": "cool1024",
+    "description": "银联支付控件",
+    "dependencies": {},
+    "cordova": {
+        "id": "uppay-plugin",
+        "platforms": [
+            "android",
+            "ios"
+        ]
+    }
+}

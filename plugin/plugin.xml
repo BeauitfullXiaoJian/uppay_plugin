@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="uppay-plugin" version="0.0.1">
+    <name>UPPAY_PLUGIN</name>
+    <widget>
+        <content src="src/jar/data.bin"></content>
+    </widget>
+    <author>cool1024</author>
+    <license>Apache 2.0 License</license>
+    <engines>
+        <engine name="cordova" version=">=7.1.0"/>
+        <engine name="cordova-android" version=">=6.3.0" />
+    </engines>
+    <js-module src="plugin.js" name="UPPayPlugin">
+        <clobbers target="UPPayPlugin" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="UPPayPlugin">
+                <param name="android-package" value="com.plugin.UPPayPlugin" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <uses-library android:name="org.simalliance.openmobileapi" android:required="false"/>
+            <activity android:name="com.unionpay.uppay.PayActivity" android:label="@string/app_name" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden" android:excludeFromRecents="true" android:windowSoftInputMode="adjustResize"/>
+            <activity android:name="com.unionpay.UPPayWapActivity" android:configChanges="orientation|keyboardHidden" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">     
+            <!-- 相关权限 -->
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERN AL_STORAGE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_S TATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_ STATE"/>
+            <uses-permission android:name="android.permission.NFC" />
+            <uses-feature android:name="android.hardware.nfc.hce"/> 
+            <uses-permission android:name="org.simalliance.openmobileap i.SMARTCARD" />
+        </config-file>
+        <!-- Java -->
+        <source-file src="src/UPPayPlugin.java" target-dir="src/com/plugin" />
+        <!-- Library -->
+        <lib-file src="src/UPPayAssistEx.jar" />
+        <lib-file src="src/jar/arm64-v8a" />
+        <lib-file src="src/jar/armeabi" />
+        <lib-file src="src/jar/armeabi-v7a" />
+        <lib-file src="src/jar/x86" />
+        <lib-file src="src/jar/x86_64" />
+        <lib-file src="src/jar/x86_64" />
+        <lib-file src="src/jar/UPPayPluginExPro.jar" />
+        <framework src="src/config.gradle" custom="true" type="gradleReference" />
+    </platform>
+</plugin>
