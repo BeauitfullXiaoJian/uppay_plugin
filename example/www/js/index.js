@@ -1,9 +1,9 @@
 function pay() {
     window['UPPayPlugin'] && window['UPPayPlugin'].call(
         // 调用方法
-        'payTest',
+        'pay',
         // 支付参数
-        ['43214324234123'],
+        ['787410383246521353801'],
         // 消息通知回调方法
         (res) => {
             alert(JSON.stringify(res));
@@ -12,6 +12,7 @@ function pay() {
             } else {
                 alert('支付失败');
             }
+            // fail:交易失败 cancle:交易取消
         }
     );
 }
