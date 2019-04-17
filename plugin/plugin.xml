@@ -50,4 +50,43 @@
         <lib-file src="src/jar/UPPayPluginExPro.jar" />
         <framework src="src/config.gradle" custom="true" type="gradleReference" />
     </platform>
+     <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="UPPayPlugin">
+                <param name="ios-package" value="CUPPayPlugin" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>uppaysdk</string>
+                <string>uppaywallet</string>
+                <string>uppayx1</string>
+                <string>uppayx2</string>
+                <string>uppayx3</string>
+            </array>
+        </config-file>
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleTypeRole</key>
+                    <string>Editor</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>uppayplugin</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+        <!-- 相关代码 -->
+        <source-file src="src/CUPPayPlugin.m" />
+        <header-file src="src/CUPPayPlugin.h" />
+        <!-- <header-file src="src/UPAPayPlugin.h" /> -->
+        <!-- <header-file src="src/UPAPayPluginDelegate.h" /> -->
+        <header-file src="src/UPPaymentControl.h" />
+        <framework src="src/libPaymentControl.a" custom="true"/>
+        <framework src="CFNetwork.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="libz.tbd" />
+        <framework src="libc++.tbd" />
+    </platform>
 </plugin>
