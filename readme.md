@@ -6,6 +6,7 @@
 ## 注意
 * android需要手动复制data.bin到assets目录中
 * ios需要手动添加libPaymentControl.a,先移除libPaymentControl.a再添加
+* ios appScheme 默认为'uppayplugin'
 ![libPaymentControl.a](1.png)
 
 ## 参考代码
